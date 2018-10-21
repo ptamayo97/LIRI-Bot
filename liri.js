@@ -2,72 +2,107 @@ require("dotenv").config();
 
 var request = require("request");
 var moment = require("moment");
-
+var fs = require("fs")
 var keys = require("./keys");
-
-// var spotify = new Spotify(keys.spotify);
+var Spotify = require("node-spotify-api");
+var spotify = new Spotify(keys.spotify);
 
 var search = process.argv[2];
 var term = process.argv.slice(3).join(" ");
 
-if (search === "movie-this") {
+function movieThis() {
     var URL = "http://www.omdbapi.com/?t=" + term + "&y=&plot=short&apikey=c1bd24ba";
     request(URL, function (error, response, body) {
         var jsonData = JSON.parse(body);
         if (!error && response.statusCode === 200) {
-            var movieData =     
+            var movieData =
                 "\n* Title: " + jsonData.Title +
-                "\n* Year: " +  jsonData.Year +
+                "\n* Year: " + jsonData.Year +
                 "\n* IMDB Rating: " + jsonData.imdbRating +
-                // "\n* Rotten Tomatoes: " + jsonData.Ratings[0].Value +
+                "\n* Rotten Tomatoes: " + jsonData.Ratings[1].Value +
                 "\n* Country produced: " + jsonData.Country +
                 "\n* Language: " + jsonData.Language +
                 "\n* Plot: " + jsonData.Plot +
                 "\n* Cast: " + jsonData.Actors
-            // ;
+                ;
             console.log(movieData);
         }
-        // console.log(jsonData);
+        fs.appendFile("log.txt", movieData, function(error) {
+            if(error) {
+              console.log(error);
+            }else {
+              console.log("Data Saved");
+            }
+          });
     });
-} 
+}
 
-else if (search === "concert-this") {
+function concertThis() {
     var URL = "https://rest.bandsintown.com/artists/" + term + "/events?app_id=codingbootcamp"
     request(URL, function (error, response, body) {
         var jsonData = JSON.parse(body)[0];
         if (!error && response.statusCode === 200) {
-            var artistData =
-                "\nVenue: " + jsonData.venue.name + 
-                "\nLocation: " +jsonData.venue.city +
-                "\nDate: " + jsonData.datetime
+            var concertData =
+                "\n* Venue: " + jsonData.venue.name +
+                "\n* Location: " + jsonData.venue.city +
+                "\n* Date: " + jsonData.datetime
                 ;
+            console.log(concertData);
         }
-        console.log(artistData);
-    })
+        fs.appendFile("log.txt", concertData, function(error) {
+            if(error) {
+              console.log(error);
+            }else {
+              console.log("Data Saved");
+            }
+          });
+    });
 }
 
-else if (search === "spotify-this-song") {
-    var URL = 
+function spotifyThis() {
+
+    spotify.search({ type: 'track', query: term }, function (err, data) {
+
+        if (err) {
+            return console.log('Error occurred: ' + err);
+        } else {
+            var artistData =
+                "\n* Artist(s): " + data.tracks.items[0].artists[0].name +
+                "\n* Song: " + data.tracks.items[0].name +
+                "\n* Link: " + data.tracks.items[0].preview_url +
+                "\n* Album: " + data.tracks.items[0].album.name
+                ;
+            console.log(artistData);
+        }
+        fs.appendFile("log.txt", artistData, function(error) {
+            if(error) {
+              console.log(error);
+            }else {
+              console.log("Data Saved");
+            }
+          });
+    });
 }
-// Name of the venue
-// Venue location
-// Date of the Event (use moment to format this as "MM/DD/YYYY")
 
-// * Title of the movie.
-//    * Year the movie came out.
-//    * IMDB Rating of the movie.
-//    * Rotten Tomatoes Rating of the movie.
-//    * Country where the movie was produced.
-//    * Language of the movie.
-//    * Plot of the movie.
-//    * Actors in the movie.
+// function doWhatItSays() {
+//         fs.readFile("log.txt", function (error, data) {
+//             if(error) {
+//               console.log(error);
+//             }else {
+//               console.log(content);
+//             }
+//           });
+// }
 
-// Make it so liri.js can take in one of the following commands:
+if (search === "movie-this") {
+    movieThis();
+} else if (search === "concert-this") {
+    concertThis();
+} else if (search === "spotify-this-song") {
+    spotifyThis();
+} else if (search === "do-what-it-says") {
+    doWhatItSays();
+}
 
 
-
-// concert-this
-// spotify-this-song
-// movie-this
-// do-what-it-says
 
