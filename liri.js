@@ -9,6 +9,7 @@ var spotify = new Spotify(keys.spotify);
 
 var search = process.argv[2];
 var term = process.argv.slice(3).join(" ");
+var divider = "\n------------------------------------------------------------\n";
 
 function movieThis() {
     var URL = "http://www.omdbapi.com/?t=" + term + "&y=&plot=short&apikey=c1bd24ba";
@@ -16,16 +17,20 @@ function movieThis() {
         var jsonData = JSON.parse(body);
         if (!error && response.statusCode === 200) {
             var movieData =
-                "\n* Title: " + jsonData.Title +
-                "\n* Year: " + jsonData.Year +
-                "\n* IMDB Rating: " + jsonData.imdbRating +
-                "\n* Rotten Tomatoes: " + jsonData.Ratings[1].Value +
-                "\n* Country produced: " + jsonData.Country +
+                "\n*** Movie Search ***\n" +
+                "\n* Title: " + jsonData.Title + 
+                "\n* Year: " + jsonData.Year + 
+                "\n* IMDB Rating: " + jsonData.imdbRating + 
+                "\n* Rotten Tomatoes: " + jsonData.Ratings[1].Value + 
+                "\n* Country produced: " + jsonData.Country + 
                 "\n* Language: " + jsonData.Language +
                 "\n* Plot: " + jsonData.Plot +
-                "\n* Cast: " + jsonData.Actors
+                "\n* Cast: " + jsonData.Actors +
+                "\n* Poster: " + jsonData.Poster +
+                "\n"+divider
                 ;
             console.log(movieData);
+
         }
         fs.appendFile("log.txt", movieData, function(error) {
             if(error) {
@@ -43,9 +48,12 @@ function concertThis() {
         var jsonData = JSON.parse(body)[0];
         if (!error && response.statusCode === 200) {
             var concertData =
+                "\n*** Concert Search ***\n" +
+                "\n* Lineup: " + jsonData.lineup.join(", ") +
                 "\n* Venue: " + jsonData.venue.name +
                 "\n* Location: " + jsonData.venue.city +
-                "\n* Date: " + jsonData.datetime
+                "\n* Date: " + moment(jsonData.datetime).format("dddd, MMMM Do YYYY, h:mm a") +
+                "\n"+divider
                 ;
             console.log(concertData);
         }
@@ -67,10 +75,12 @@ function spotifyThis() {
             return console.log('Error occurred: ' + err);
         } else {
             var artistData =
-                "\n* Artist(s): " + data.tracks.items[0].artists[0].name +
-                "\n* Song: " + data.tracks.items[0].name +
-                "\n* Link: " + data.tracks.items[0].preview_url +
-                "\n* Album: " + data.tracks.items[0].album.name
+                "\n*** Song Search ***\n" +
+                "\n* Artist(s): " + data.tracks.items[0].artists[0].name + 
+                "\n* Song: " + data.tracks.items[0].name + 
+                "\n* Link: " + data.tracks.items[0].preview_url + 
+                "\n* Album: " + data.tracks.items[0].album.name + 
+                "\n"+divider
                 ;
             console.log(artistData);
         }

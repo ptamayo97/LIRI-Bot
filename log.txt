@@ -1,0 +1,76 @@
+
+*** Song Search ***
+* Artist(s): New Order
+* Song: Blue Monday - 2016 Remastered Version
+* Link: https://p.scdn.co/mp3-preview/f46b03a721232e4cb0f7fd160deccf0c933cc4b3?cid=7ae123c8ad3046a1b9906e19b128a625
+* Album: Singles (Remastered)
+
+------------------------------------------------------------
+
+*** Movie Search ***
+
+* Title: Braveheart
+* Year: 1995
+* IMDB Rating: 8.4
+* Rotten Tomatoes: 76%
+* Country produced: USA
+* Language: English, French, Latin, Scottish Gaelic, Italian
+* Plot: When his secret bride is executed for assaulting an English soldier who tried to rape her, Sir William Wallace begins a revolt against King Edward I of England.
+* Cast: James Robinson, Sean Lawlor, Sandy Nelson, James Cosmo
+
+------------------------------------------------------------
+
+*** Movie Search ***
+
+* Title: Braveheart
+* Year: 1995
+* IMDB Rating: 8.4
+* Rotten Tomatoes: 76%
+* Country produced: USA
+* Language: English, French, Latin, Scottish Gaelic, Italian
+* Plot: When his secret bride is executed for assaulting an English soldier who tried to rape her, Sir William Wallace begins a revolt against King Edward I of England.
+* Cast: James Robinson, Sean Lawlor, Sandy Nelson, James Cosmo
+* Poster: https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBmLWI0YzctOGYyNTkwMWE5MTJkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg
+
+------------------------------------------------------------
+
+*** Concert Search ***
+
+* Lineup: Beach Fossils, Wavves, Kevin Krauter
+* Venue: Black Cat
+* Location: Washington
+* Date: Wednesday, October 24th 2018, 7:00 pm
+
+------------------------------------------------------------
+
+*** Song Search ***
+
+* Artist(s): Toro y Moi
+* Song: Rose Quartz
+* Link: https://p.scdn.co/mp3-preview/2cb1d4aea43c2f31afdee3f2b7bfd070f041dde0?cid=7ae123c8ad3046a1b9906e19b128a625
+* Album: Anything In Return
+
+------------------------------------------------------------
+
+*** Movie Search ***
+
+* Title: Gladiator
+* Year: 2000
+* IMDB Rating: 8.5
+* Rotten Tomatoes: 77%
+* Country produced: USA, UK
+* Language: English
+* Plot: A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.
+* Cast: Russell Crowe, Joaquin Phoenix, Connie Nielsen, Oliver Reed
+* Poster: https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg
+
+------------------------------------------------------------
+
+*** Concert Search ***
+
+* Lineup: Wild Nothing
+* Venue: Meow Wolf
+* Location: Santa Fe
+* Date: Tuesday, October 23rd 2018, 7:00 pm
+
+------------------------------------------------------------
